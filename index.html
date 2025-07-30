@@ -1,53 +1,35 @@
 <?php
-// 获取远程m3u文件内容
-$m3u_url = "https://aktv.space/live.m3u";
-$m3u_content = @file_get_contents($m3u_url);
+// 简单的身份验证 - 在实际应用中应使用更安全的方式
+$valid_password = "CNNWATCH"; // 修改为您自己的密码
+$show_login = true;
 
-$channels = [];
-if ($m3u_content) {
-    // 解析m3u文件
-    $lines = explode("\n", $m3u_content);
-    $current_channel = null;
-    
-    foreach ($lines as $line) {
-        $line = trim($line);
-        if (empty($line)) continue;
-        
-        if (strpos($line, '#EXTINF:') === 0) {
-            // 提取频道名称
-            $parts = explode(',', $line);
-            $current_channel = [
-                'name' => end($parts),
-                'url' => null
-            ];
-        } elseif ($current_channel && !$current_channel['url'] && filter_var($line, FILTER_VALIDATE_URL)) {
-            // 提取URL
-            $current_channel['url'] = $line;
-            $channels[] = $current_channel;
-            $current_channel = null;
-        }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password'])) {
+    if ($_POST['password'] === $valid_password) {
+        $show_login = false;
     }
 }
+
+// 如果用户已经通过身份验证，则显示播放器
+if (!$show_login) {
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows XP风格视频播放器</title>
-    <link href="https://cdn.jsdelivr.net/npm/hls.js@latest" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <title>Windows XP 媒体播放器</title>
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Tahoma", "Microsoft Sans Serif", sans-serif;
+            font-family: "Microsoft Sans Serif", Tahoma, Arial, sans-serif;
         }
         
         body {
-            background-color: #008080;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><rect width="4" height="4" fill="%2300a0a0"/><path d="M0 0L4 4M4 0L0 4" stroke="%23007070" stroke-width="0.5"/></svg>');
+            background: #008080 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23008080" width="100" height="100"/><path d="M0 0L100 100M100 0L0 100" stroke="%23006060" stroke-width="1"/></svg>');
+            background-size: 100px 100px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -55,58 +37,84 @@ if ($m3u_content) {
             padding: 20px;
         }
         
+        .desktop {
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+        }
+        
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to bottom, #0a246a, #a3c6f3);
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            z-index: 1000;
+            border-top: 1px solid #fff;
+        }
+        
+        .start-btn {
+            height: 24px;
+            background: linear-gradient(to bottom, #1c6de1, #0a246a);
+            color: white;
+            border: 1px solid #083c7a;
+            border-radius: 3px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            cursor: default;
+            user-select: none;
+        }
+        
+        .start-btn:active {
+            background: linear-gradient(to bottom, #0a246a, #1c6de1);
+        }
+        
         .window {
-            width: 800px;
-            height: 600px;
             background: #c0c0c0;
             border: 2px solid;
             border-top-color: #ffffff;
             border-left-color: #ffffff;
             border-right-color: #808080;
             border-bottom-color: #808080;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
             position: relative;
+            margin: 20px auto;
+            width: 800px;
         }
         
         .title-bar {
-            background: linear-gradient(to right, #000080, #1084d0);
+            background: linear-gradient(to right, #0a246a, #a6caf0);
             color: white;
-            padding: 4px 8px;
+            padding: 3px 6px;
+            font-weight: bold;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: bold;
+            height: 24px;
+        }
+        
+        .title-bar-text {
             font-size: 14px;
-            height: 22px;
-        }
-        
-        .window-title {
             display: flex;
             align-items: center;
-            gap: 6px;
         }
         
-        .window-icon {
-            width: 16px;
-            height: 16px;
-            background-color: #fff;
+        .title-bar-text img {
+            margin-right: 6px;
+        }
+        
+        .title-bar-controls {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            color: #000080;
-            font-size: 12px;
         }
         
-        .window-controls {
-            display: flex;
-            gap: 2px;
-        }
-        
-        .window-btn {
-            width: 20px;
+        .title-bar-controls button {
+            width: 22px;
             height: 20px;
             background: #c0c0c0;
             border: 1px solid;
@@ -114,341 +122,341 @@ if ($m3u_content) {
             border-left-color: #ffffff;
             border-right-color: #808080;
             border-bottom-color: #808080;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
+            line-height: 16px;
             font-weight: bold;
-            font-size: 12px;
-            color: #000;
-            cursor: pointer;
+            margin-left: 2px;
         }
         
-        .window-btn:active {
-            border-top-color: #808080;
-            border-left-color: #808080;
-            border-right-color: #ffffff;
-            border-bottom-color: #ffffff;
-        }
-        
-        .menu-bar {
-            background: #c0c0c0;
-            border-top: 1px solid #808080;
-            padding: 2px 4px;
-            display: flex;
-            gap: 15px;
-            font-size: 13px;
-        }
-        
-        .menu-item {
-            padding: 2px 8px;
-            cursor: default;
-        }
-        
-        .menu-item:hover {
-            background: #000080;
-            color: white;
-        }
-        
-        .content {
-            display: flex;
-            flex: 1;
-            padding: 10px;
-            gap: 10px;
-            overflow: hidden;
+        .window-body {
+            padding: 12px;
+            background: #ffffff;
+            min-height: 400px;
         }
         
         .video-container {
-            flex: 3;
             background: #000;
-            border: 2px solid;
-            border-top-color: #808080;
-            border-left-color: #808080;
-            border-right-color: #ffffff;
-            border-bottom-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-bottom: 15px;
             position: relative;
+            overflow: hidden;
         }
         
-        #videoPlayer {
+        .video-js {
             width: 100%;
-            height: 100%;
-            background: #000;
+            height: 400px;
         }
         
-        .channel-list {
-            flex: 1;
-            background: #c0c0c0;
-            border: 2px solid;
-            border-top-color: #ffffff;
-            border-left-color: #ffffff;
-            border-right-color: #808080;
-            border-bottom-color: #808080;
-            overflow-y: auto;
+        .info-panel {
+            background: #d4d0c8;
+            padding: 10px;
+            border: 1px solid #808080;
+            margin-top: 15px;
         }
         
-        .channel-list-title {
-            background: #000080;
-            color: white;
-            padding: 4px 8px;
-            font-weight: bold;
+        .info-panel h3 {
+            color: #0a246a;
+            margin-bottom: 8px;
             font-size: 14px;
         }
         
-        .channel-items {
-            list-style: none;
-            padding: 4px 0;
+        .info-panel p {
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 5px;
         }
         
-        .channel-item {
-            padding: 6px 10px;
-            cursor: pointer;
-            font-size: 13px;
-            border-bottom: 1px solid #808080;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .icon {
+            width: 32px;
+            height: 32px;
+            margin: 5px;
+            text-align: center;
+            font-size: 10px;
+            cursor: default;
+            user-select: none;
         }
         
-        .channel-item:hover {
-            background: #000080;
-            color: white;
+        .icon img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 2px;
         }
         
-        .channel-item.active {
-            background: #000080;
-            color: white;
-            font-weight: bold;
+        .icons-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
         
         .status-bar {
-            height: 22px;
-            background: #c0c0c0;
+            background: #d4d0c8;
             border-top: 1px solid #808080;
-            display: flex;
-            align-items: center;
-            padding: 0 8px;
+            padding: 2px 4px;
             font-size: 12px;
-            color: #000;
-        }
-        
-        .loading {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            z-index: 10;
-            display: none;
+            justify-content: space-between;
         }
         
-        .no-content {
-            color: #808080;
-            text-align: center;
-            padding: 20px;
-            font-style: italic;
-        }
-        
-        .watermark {
+        .time {
             position: absolute;
-            bottom: 10px;
+            top: 10px;
             right: 10px;
-            color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px;
             font-size: 12px;
+            border-radius: 3px;
         }
         
-        .btn {
-            padding: 4px 12px;
-            background: #c0c0c0;
+        .login-window {
+            background: #d4d0c8;
             border: 2px solid;
             border-top-color: #ffffff;
             border-left-color: #ffffff;
             border-right-color: #808080;
             border-bottom-color: #808080;
-            cursor: pointer;
-            font-size: 12px;
-            margin-right: 5px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
         }
         
-        .btn:active {
-            border-top-color: #808080;
-            border-left-color: #808080;
-            border-right-color: #ffffff;
-            border-bottom-color: #ffffff;
+        .login-window h2 {
+            color: #0a246a;
+            margin-bottom: 20px;
+        }
+        
+        .login-window input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #808080;
+        }
+        
+        .login-window button {
+            background: linear-gradient(to bottom, #1c6de1, #0a246a);
+            color: white;
+            border: 1px solid #083c7a;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        
+        .login-window button:hover {
+            background: linear-gradient(to bottom, #0a246a, #1c6de1);
+        }
+        
+        .error-message {
+            color: #ff0000;
+            font-size: 12px;
+            margin-top: 10px;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="window">
-        <div class="title-bar">
-            <div class="window-title">
-                <div class="window-icon">W</div>
-                <span>Windows XP 视频播放器</span>
+    <div class="desktop">
+        <?php if (!$show_login): ?>
+        <!-- 主窗口 -->
+        <div class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjklEQVR4AWMYBaNgFJAN/v79ywDkMjAwMPz//58BzGZgYGD4z8DA8J8JqPj///8M//79Y2D6z8DAwMDwnwFkAMN/ZiYGBgYGRiZQDPz/D0oGhn+QaPjPwMDwn5GRAZIM//9DooGJgYGBgYGRkZGRAZIM//9DooGJgYGBgYGRkZGRAZIM//9DooEJrJ+RAZIM/0HpA5wMkGRgYAAAVy0g8B1H8VkAAAAASUVORK5CYII=" alt="Player Icon">
+                    媒体播放器 - Windows XP
+                </div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
             </div>
-            <div class="window-controls">
-                <div class="window-btn">_</div>
-                <div class="window-btn">□</div>
-                <div class="window-btn">×</div>
+            <div class="window-body">
+                <div class="video-container">
+                    <div class="time" id="current-time"></div>
+                    <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="764" height="400">
+                        <source src="https://ds2c506obo7m8.cloudfront.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-7zjq3tdqasbg8/40142820-daef-4159-82de-8f3c56721581/0.m3u8" type="application/x-mpegURL">
+                    </video>
+                </div>
+                
+                <div class="info-panel">
+                    <h3>视频信息</h3>
+                    <p><strong>标题:</strong> 私人媒体流</p>
+                    <p><strong>格式:</strong> HLS (.m3u8)</p>
+                    <p><strong>分辨率:</strong> 720p</p>
+                    <p><strong>状态:</strong> <span id="status">正在加载...</span></p>
+                </div>
+                
+                <div class="icons-container">
+                    <div class="icon">
+                        <img src="data:image/png;base64,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" alt="My Computer">
+                        我的电脑
+                    </div>
+                    <div class="icon">
+                        <img src="data:image/png;base64,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" alt="My Documents">
+                        我的文档
+                    </div>
+                    <div class="icon">
+                        <img src="data:image/png;base64,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" alt="Recycle Bin">
+                        回收站
+                    </div>
+                </div>
+            </div>
+            <div class="status-bar">
+                <div class="status-bar-field">就绪</div>
+                <div class="status-bar-field">Windows XP Professional</div>
             </div>
         </div>
         
-        <div class="menu-bar">
-            <div class="menu-item">文件(F)</div>
-            <div class="menu-item">编辑(E)</div>
-            <div class="menu-item">查看(V)</div>
-            <div class="menu-item">帮助(H)</div>
+        <!-- 任务栏 -->
+        <div class="taskbar">
+            <div class="start-btn">开始</div>
         </div>
-        
-        <div class="content">
-            <div class="video-container">
-                <div class="loading" id="loadingIndicator">正在加载视频...</div>
-                <video id="videoPlayer" controls></video>
-                <div class="watermark">Windows XP Video Player</div>
-            </div>
-            
-            <div class="channel-list">
-                <div class="channel-list-title">频道列表</div>
-                <ul class="channel-items">
-                    <?php if (!empty($channels)): ?>
-                        <?php foreach ($channels as $index => $channel): ?>
-                            <li class="channel-item <?= $index === 0 ? 'active' : '' ?>" 
-                                data-url="<?= htmlspecialchars($channel['url']) ?>">
-                                <?= htmlspecialchars($channel['name']) ?>
-                            </li>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <li class="no-content">无法加载频道列表</li>
-                    <?php endif; ?>
-                </ul>
+        <?php else: ?>
+        <!-- 登录窗口 -->
+        <div class="login-window">
+            <h2>私人视频播放器</h2>
+            <form method="POST">
+                <input type="password" name="password" placeholder="输入访问密码">
+                <button type="submit">登录</button>
+            </form>
+            <div class="error-message" id="error-message">
+                密码错误，请重试
             </div>
         </div>
-        
-        <div class="status-bar">
-            <span id="statusText">就绪</span>
-            <div style="flex:1"></div>
-            <button class="btn" id="reloadBtn">重新加载列表</button>
-        </div>
+        <?php endif; ?>
     </div>
-
+    
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('videoPlayer');
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const statusText = document.getElementById('statusText');
-            const reloadBtn = document.getElementById('reloadBtn');
-            const channelItems = document.querySelectorAll('.channel-item');
+        <?php if (!$show_login): ?>
+        // 初始化视频播放器
+        const player = videojs('my-video');
+        
+        player.ready(function() {
+            // 更新状态文本
+            document.getElementById('status').textContent = '已加载';
             
-            let hls = null;
-            let currentChannel = null;
-            
-            // 初始化播放器
-            function initPlayer() {
-                if (Hls.isSupported()) {
-                    hls = new Hls();
-                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                        statusText.textContent = '正在播放: ' + (currentChannel ? currentChannel.textContent : '');
-                    });
-                    
-                    hls.on(Hls.Events.ERROR, function(event, data) {
-                        console.error('播放错误:', data);
-                        if (data.fatal) {
-                            statusText.textContent = '播放错误: ' + data.details;
-                            
-                            // 尝试恢复播放
-                            if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-                                statusText.textContent = '网络错误，正在重试...';
-                                setTimeout(() => loadChannel(currentChannel), 2000);
-                            } else {
-                                hls.destroy();
-                            }
-                        }
-                    });
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    // 原生HLS支持 (Safari)
-                    video.addEventListener('loadedmetadata', function() {
-                        statusText.textContent = '正在播放: ' + (currentChannel ? currentChannel.textContent : '');
-                    });
-                } else {
-                    statusText.textContent = '错误: 您的浏览器不支持播放m3u8视频';
-                }
-            }
-            
-            // 加载频道
-            function loadChannel(channelElement) {
-                if (!channelElement || !channelElement.dataset.url) return;
-                
-                // 更新UI
-                channelItems.forEach(item => item.classList.remove('active'));
-                channelElement.classList.add('active');
-                currentChannel = channelElement;
-                
-                const url = channelElement.dataset.url;
-                statusText.textContent = '正在加载: ' + channelElement.textContent;
-                loadingIndicator.style.display = 'flex';
-                
-                // 播放视频
-                if (hls) {
-                    hls.destroy();
-                    hls.loadSource(url);
-                    hls.attachMedia(video);
-                    video.play().catch(e => {
-                        console.error('自动播放失败:', e);
-                        statusText.textContent = '点击播放按钮开始播放';
-                    });
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    video.src = url;
-                    video.play().catch(e => {
-                        console.error('自动播放失败:', e);
-                        statusText.textContent = '点击播放按钮开始播放';
-                    });
-                }
-                
-                // 隐藏加载指示器
-                video.addEventListener('canplay', function() {
-                    loadingIndicator.style.display = 'none';
-                });
-            }
-            
-            // 事件监听
-            channelItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    loadChannel(this);
-                });
-            });
-            
-            reloadBtn.addEventListener('click', function() {
-                statusText.textContent = '重新加载频道列表...';
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
-            });
-            
-            // 窗口控制按钮
-            document.querySelectorAll('.window-btn')[0].addEventListener('click', function() {
-                document.querySelector('.window').style.display = 'none';
-            });
-            
-            document.querySelectorAll('.window-btn')[2].addEventListener('click', function() {
-                if (confirm('确定要关闭播放器吗？')) {
-                    window.close();
-                }
-            });
-            
-            // 初始化
-            initPlayer();
-            
-            // 自动播放第一个频道
-            if (channelItems.length > 0 && channelItems[0].classList.contains('active')) {
-                loadChannel(channelItems[0]);
-            }
+            // 更新当前时间
+            setInterval(() => {
+                const now = new Date();
+                document.getElementById('current-time').textContent = 
+                    `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+            }, 1000);
         });
+        
+        // 添加错误处理
+        player.on('error', function() {
+            document.getElementById('status').textContent = '加载失败';
+        });
+        
+        // 窗口控制按钮功能
+        document.querySelector('.title-bar-controls button:last-child').addEventListener('click', function() {
+            window.location.href = 'about:blank'; // 模拟关闭窗口
+        });
+        <?php else: ?>
+        // 如果登录失败显示错误消息
+        <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+        document.getElementById('error-message').style.display = 'block';
+        <?php endif; ?>
+        <?php endif; ?>
     </script>
 </body>
 </html>
+<?php
+} else {
+    // 显示登录页面
+    echo '<!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>登录 - Windows XP 媒体播放器</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Microsoft Sans Serif", Tahoma, Arial, sans-serif;
+            }
+            
+            body {
+                background: #008080 url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23008080" width="100" height="100"/><path d="M0 0L100 100M100 0L0 100" stroke="%23006060" stroke-width="1"/></svg>\');
+                background-size: 100px 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                padding: 20px;
+            }
+            
+            .login-window {
+                background: #d4d0c8;
+                border: 2px solid;
+                border-top-color: #ffffff;
+                border-left-color: #ffffff;
+                border-right-color: #808080;
+                border-bottom-color: #808080;
+                padding: 20px;
+                width: 300px;
+                text-align: center;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .login-window h2 {
+                color: #0a246a;
+                margin-bottom: 20px;
+            }
+            
+            .login-window input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 15px;
+                border: 1px solid #808080;
+            }
+            
+            .login-window button {
+                background: linear-gradient(to bottom, #1c6de1, #0a246a);
+                color: white;
+                border: 1px solid #083c7a;
+                padding: 5px 15px;
+                cursor: pointer;
+            }
+            
+            .login-window button:hover {
+                background: linear-gradient(to bottom, #0a246a, #1c6de1);
+            }
+            
+            .error-message {
+                color: #ff0000;
+                font-size: 12px;
+                margin-top: 10px;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-window">
+            <h2>私人视频播放器</h2>
+            <form method="POST">
+                <input type="password" name="password" placeholder="输入访问密码">
+                <button type="submit">登录</button>
+            </form>
+            <div class="error-message" id="error-message">';
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo '密码错误，请重试';
+    }
+    
+    echo '</div>
+        </div>
+        
+        <script>
+            // 如果登录失败显示错误消息';
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo 'document.getElementById("error-message").style.display = "block";';
+    }
+    
+    echo '</script>
+    </body>
+    </html>';
+}
+?>
