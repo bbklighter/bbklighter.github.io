@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>频道 1 - 翡翠台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -17,6 +18,27 @@
             height: 100vh;
             color: #fff;
             overflow: hidden;
+        }
+        
+        .channel-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            z-index: -1;
+        }
+        
+        .channel-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.05);
+            font-weight: bold;
+            z-index: 0;
         }
         
         .channel-banner {
@@ -57,6 +79,7 @@
             width: 100%;
             height: 100vh;
             background-color: #000;
+            z-index: 10;
         }
         
         .video-player {
@@ -80,10 +103,76 @@
             z-index: 50;
             font-family: "Microsoft Sans Serif", Tahoma, Arial, sans-serif;
             font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to bottom, #0a246a, #a3c6f3);
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            box-shadow: inset 0 1px 0 #ffffff;
+            z-index: 100;
+        }
+        
+        .start-btn {
+            height: 24px;
+            background: linear-gradient(to bottom, #33b45c, #0d7d3a);
+            border: 1px solid #0a5c26;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: inset 0 1px 0 #7ad698;
+        }
+        
+        .taskbar-time {
+            margin-left: auto;
+            color: white;
+            font-size: 12px;
+            padding: 0 10px;
+        }
+        
+        .watermark {
+            position: absolute;
+            bottom: 40px;
+            right: 10px;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .channel-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 14px;
+            z-index: 50;
         }
     </style>
 </head>
 <body>
+    <!-- 背景元素 -->
+    <div class="channel-bg"></div>
+    <div class="channel-watermark">翡翠台</div>
+    
     <!-- 频道标识小窗 -->
     <div class="channel-banner">
         <div class="channel-logo"></div>
@@ -92,8 +181,40 @@
     
     <!-- 视频播放器 -->
     <div class="video-container">
-        <button class="back-btn" onclick="window.location.href='index.html'">返回频道列表</button>
+        <button class="back-btn" onclick="window.location.href='index.html'">
+            <i class="fas fa-arrow-left"></i> 返回频道列表
+        </button>
+        <div class="channel-info">当前频道: 翡翠台 | 信号强度: 100%</div>
         <iframe class="video-player" src="http://php.jdshipin.com:8880/smt.php?id=jade_twn" frameborder="0" allowfullscreen></iframe>
     </div>
+    
+    <!-- 水印 -->
+    <div class="watermark">Windows XP</div>
+    
+    <!-- 任务栏 -->
+    <div class="taskbar">
+        <div class="start-btn">
+            <i class="fas fa-windows"></i>
+            <span>开始</span>
+        </div>
+        <div class="taskbar-time" id="currentTime"></div>
+    </div>
+
+    <script>
+        // 显示当前时间
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('zh-CN', {hour: '2-digit', minute:'2-digit'});
+            document.getElementById('currentTime').textContent = timeStr;
+        }
+        
+        setInterval(updateTime, 60000);
+        updateTime();
+        
+        // 5秒后隐藏频道标识
+        setTimeout(() => {
+            document.querySelector('.channel-banner').style.display = 'none';
+        }, 5000);
+    </script>
 </body>
 </html>
