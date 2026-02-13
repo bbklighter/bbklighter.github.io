@@ -1,27 +1,115 @@
 #EXTM3U
-#EXTINF:-1 group-title="溫馨「提示」",免費訂閲：請勿販賣...
-https://epg.iill.top/v/302.mp4
-#EXTINF:-1 group-title="溫馨「提示」",維護時間：2026-2-2 #佛系維護...
-https://epg.iill.top/v/301.mp4
-#EXTINF:-1 group-title="溫馨「提示」",維護内容：維護 Gather「調整 •台灣「限制」"」
-https://epg.iill.top/v/302.mp4
-#EXTINF:-1 group-title="溫馨「提示」",公告说明：推流源·「隨時拉閘 / 晚安"0-6"」
-https://epg.iill.top/v/301.mp4
-#EXTINF:-1 group-title="溫馨「提示」",建議使用：請保持 个人觀看 請勿頻繁切換
-https://epg-1.iill.top/v/301.mp4
-#EXTINF:-1 group-title="綜合「測試」",BBC Earth
+#EXTINF:-1 group-title="地方「特产」",东方卫视
+http://dxa.yiandrive.com:39191/sh/dfws
+#EXTINF:-1 group-title="地方「特产」",五星体育
+http://dxa.yiandrive.com:39191/sh/wxty
+#EXTINF:-1 group-title="地方「特产」",第一财经
+http://dxa.yiandrive.com:39191/sh/dycj
+#EXTINF:-1 group-title="地方「特产」",上海新闻综合
+http://dxa.yiandrive.com:39191/sh/xwzh
+#EXTINF:-1 group-title="地方「特产」",上海都市频道
+http://dxa.yiandrive.com:39191/sh/dspd
+#EXTINF:-1 group-title="地方「特产」",新纪实
+http://dxa.yiandrive.com:39191/sh/xjs
+#EXTINF:-1 group-title="地方「特产」",魔都眼
+http://dxa.yiandrive.com:39191/sh/mdy
+#EXTINF:-1 group-title="地方「特产」",爱上海
+http://dxa.yiandrive.com:39191/sh/ash
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png",CCTV-1 综合
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221225804/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-2" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png",CCTV-2 财经
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226224/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-3" tvg-logo="https://live.fanmingming.com/tv/CCTV3.png",CCTV-3 综艺
+http://120.196.232.50:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226720/1.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-4" tvg-logo="https://live.fanmingming.com/tv/CCTV4.png",CCTV-4 中文国际
+http://39.134.24.161/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226191/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-5" tvg-logo="https://live.fanmingming.com/tv/CCTV5.png",CCTV-5 体育
+http://39.134.24.161/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226395/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-5+" tvg-logo="https://live.fanmingming.com/tv/CCTV5+.png",CCTV-5+ 体育赛事
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221225761/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-6" tvg-logo="https://live.fanmingming.com/tv/CCTV6.png",CCTV-6 电影
+http://120.196.232.25:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226699/1.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-8" tvg-logo="https://live.fanmingming.com/tv/CCTV8.png",CCTV-8 电视剧
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226012/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-9" tvg-logo="https://live.fanmingming.com/tv/CCTV9.png",CCTV-9 纪录
+http://120.196.232.36:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226651/1.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-10" tvg-logo="https://live.fanmingming.com/tv/CCTV10.png",CCTV-10 科教
+http://39.134.24.161/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226189/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-11" tvg-logo="https://live.fanmingming.com/tv/CCTV11.png",CCTV-11 戏曲
+http://221.213.43.82:8888/newlive/live/hls/13/live.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-12" tvg-logo="https://live.fanmingming.com/tv/CCTV12.png",CCTV-12 社会与法
+http://120.196.232.51:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226723/1.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-13" tvg-logo="https://live.fanmingming.com/tv/CCTV13.png",CCTV-13 新闻
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226233/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-14" tvg-logo="https://live.fanmingming.com/tv/CCTV14.png",CCTV-14 少儿
+http://120.196.232.27:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226645/1.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-15" tvg-logo="https://live.fanmingming.com/tv/CCTV15.png",CCTV-15 音乐
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221225785/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-16" tvg-logo="https://live.fanmingming.com/tv/CCTV16.png",CCTV-16 4K
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226921/index.m3u8
+#EXTINF:-1 group-title="央视台" tvg-id="CCTV-17" tvg-logo="https://live.fanmingming.com/tv/CCTV17.png",CCTV-17 农业农村
+http://120.196.232.43:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226727/1.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="云南卫视" tvg-logo="https://live.fanmingming.com/tv/云南卫视.png",云南卫视
+http://221.213.43.82:8888/newlive/live/hls/27/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="兵团卫视" tvg-logo="https://live.fanmingming.com/tv/兵团卫视.png",兵团卫视
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226214/index.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="北京卫视" tvg-logo="https://live.fanmingming.com/tv/北京卫视.png",北京卫视
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221225796/index.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="厦门卫视" tvg-logo="https://live.fanmingming.com/tv/厦门卫视.png",厦门卫视
+http://120.196.232.41:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226695/1.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="吉林卫视" tvg-logo="https://live.fanmingming.com/tv/吉林卫视.png",吉林卫视
+http://221.213.43.82:8888/newlive/live/hls/35/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="四川卫视" tvg-logo="https://live.fanmingming.com/tv/四川卫视.png",四川卫视
+http://221.2.36.34:8888/newlive/live/hls/32/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="天津卫视" tvg-logo="https://live.fanmingming.com/tv/天津卫视.png",天津卫视
+http://120.196.232.41:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226686/1.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="安徽卫视" tvg-logo="https://live.fanmingming.com/tv/安徽卫视.png",安徽卫视
+http://221.2.36.34:8888/newlive/live/hls/25/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="山东卫视" tvg-logo="https://live.fanmingming.com/tv/山东卫视.png",山东卫视
+http://120.196.232.15:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226693/1.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="广东卫视" tvg-logo="https://live.fanmingming.com/tv/广东卫视.png",广东卫视
+http://221.2.36.34:8888/newlive/live/hls/21/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="广西卫视" tvg-logo="https://live.fanmingming.com/tv/广西卫视.png",广西卫视
+http://221.213.43.82:8888/newlive/live/hls/26/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="江苏卫视" tvg-logo="https://live.fanmingming.com/tv/江苏卫视.png",江苏卫视
+http://221.2.36.34:8888/newlive/live/hls/22/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="江西卫视" tvg-logo="https://live.fanmingming.com/tv/江西卫视.png",江西卫视
+http://221.2.36.34:8888/newlive/live/hls/48/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="河北卫视" tvg-logo="https://live.fanmingming.com/tv/河北卫视.png",河北卫视
+http://183.196.25.171:808/hls/16/index.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="河南卫视" tvg-logo="https://live.fanmingming.com/tv/河南卫视.png",河南卫视
+http://221.2.36.34:8888/newlive/live/hls/33/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="浙江卫视" tvg-logo="https://live.fanmingming.com/tv/浙江卫视.png",浙江卫视
+http://hw-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="深圳卫视" tvg-logo="https://live.fanmingming.com/tv/深圳卫视.png",深圳卫视
+http://221.2.36.34:8888/newlive/live/hls/28/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="湖北卫视" tvg-logo="https://live.fanmingming.com/tv/湖北卫视.png",湖北卫视
+http://221.2.36.34:8888/newlive/live/hls/34/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="甘肃卫视" tvg-logo="https://live.fanmingming.com/tv/甘肃卫视.png",甘肃卫视
+http://120.196.232.47:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226662/1.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="贵州卫视" tvg-logo="https://live.fanmingming.com/tv/贵州卫视.png",贵州卫视
+http://221.2.36.34:8888/newlive/live/hls/29/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="辽宁卫视" tvg-logo="https://live.fanmingming.com/tv/辽宁卫视.png",辽宁卫视
+http://120.196.232.21:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226689/1.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="重庆卫视" tvg-logo="https://live.fanmingming.com/tv/重庆卫视.png",重庆卫视
+http://221.2.36.34:8888/newlive/live/hls/31/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="青海卫视" tvg-logo="https://live.fanmingming.com/tv/青海卫视.png",青海卫视
+http://221.2.36.34:8888/newlive/live/hls/39/live.m3u8
+#EXTINF:-1 group-title="卫视台" tvg-id="黑龙江卫视" tvg-logo="https://live.fanmingming.com/tv/黑龙江卫视.png",黑龙江卫视
+http://39.134.24.162/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221225802/index.m3u8
+#EXTINF:-1 group-title="綜合「測試」",BBC Earth 英国电视公司地球记录频道
 https://hls.iill.top/api/BBC-Earth/index.m3u8
-#EXTINF:-1 group-title="綜合「測試」",BBC Lifestyle
+#EXTINF:-1 group-title="綜合「測試」",BBC Lifestyle 英国电视公司生活频道
 https://hls.iill.top/api/BBC-Lifestyle/index.m3u8
-#EXTINF:-1 group-title="綜合「測試」",Discovery
+#EXTINF:-1 group-title="綜合「測試」",Discovery 迪士尼纪实频道
 https://hls.iill.top/api/Discovery/index.m3u8
-#EXTINF:-1 group-title="綜合「測試」",HBO
+#EXTINF:-1 group-title="綜合「測試」",HBO 华纳家庭票房电影频道
 https://hls.iill.top/api/HBO/index.m3u8
-#EXTINF:-1 group-title="綜合「測試」",HBO Hits
+#EXTINF:-1 group-title="綜合「測試」",HBO Hits 华纳家庭票房电影频道强档钜献台
 https://hls.iill.top/api/HBO-Hits/index.m3u8
-#EXTINF:-1 group-title="綜合「測試」",HBO Family
+#EXTINF:-1 group-title="綜合「測試」",HBO Family 华纳家庭票房电影频道温馨家庭台
 https://hls.iill.top/api/HBO-Family/index.m3u8
-#EXTINF:-1 group-title="綜合「測試」",HBO Signature
+#EXTINF:-1 group-title="綜合「測試」",HBO Signature 华纳家庭票房电影频道原创钜献台
 https://hls.iill.top/api/HBO-Signature/index.m3u8
 #EXTINF:-1 group-title="綜合「測試」",動物星球
 https://hls.iill.top/api/dwxq/index.m3u8
@@ -37,67 +125,67 @@ https://hls.iill.top/api/dsdy/index.m3u8
 https://hls.iill.top/api/dsyp/index.m3u8
 #EXTINF:-1 group-title="綜合「測試」",龍祥時代
 https://hls.iill.top/api/lxsd/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Eurosport 1
+#EXTINF:-1 group-title="體育「測試」",Eurosport 1 欧洲体育频道1台
 https://hls.iill.top/api/Eurosport-1/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Eurosport 2
+#EXTINF:-1 group-title="體育「測試」",Eurosport 2 欧洲体育频道2台
 https://hls.iill.top/api/Eurosport-2/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",TNT Sport 1
+#EXTINF:-1 group-title="體育「測試」",TNT Sport 1 英国电信体育频道1台
 https://hls.iill.top/api/TNT-Sports-1/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",TNT Sport 2
+#EXTINF:-1 group-title="體育「測試」",TNT Sport 2 英国电信体育频道2台
 https://hls.iill.top/api/TNT-Sports-2/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",TNT Sport 3
+#EXTINF:-1 group-title="體育「測試」",TNT Sport 3 英国电信体育频道3台
 https://hls.iill.top/api/TNT-Sports-3/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",TNT Sport 4
+#EXTINF:-1 group-title="體育「測試」",TNT Sport 4 英国电信体育频道4台
 https://hls.iill.top/api/TNT-Sports-4/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",beIN Sports 1
+#EXTINF:-1 group-title="體育「測試」",beIN Sports 1 半島電視台體育頻道1台
 https://hls.iill.top/api/beIN-Sports-1/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",beIN Sports 2
+#EXTINF:-1 group-title="體育「測試」",beIN Sports 2 半島電視台體育頻道2台
 https://hls.iill.top/api/beIN-Sports-2/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",beIN Sports 3
+#EXTINF:-1 group-title="體育「測試」",beIN Sports 3 半島電視台體育頻道3台
 https://hls.iill.top/api/beIN-Sports-3/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",beIN Sports 4
+#EXTINF:-1 group-title="體育「測試」",beIN Sports 4 半島電視台體育頻道4台
 https://hls.iill.top/api/beIN-Sports-4/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",beIN Sports 5
+#EXTINF:-1 group-title="體育「測試」",beIN Sports 5 半島電視台體育頻道5台
 https://hls.iill.top/api/beIN-Sports-5/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Premier 1
+#EXTINF:-1 group-title="體育「測試」",Hub Premier 1 星和视界卓越体育频道1台
 https://hls.iill.top/api/Hub-Premier-1/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Premier 2
+#EXTINF:-1 group-title="體育「測試」",Hub Premier 2 星和视界卓越体育频道2台
 https://hls.iill.top/api/Hub-Premier-2/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Premier 3
+#EXTINF:-1 group-title="體育「測試」",Hub Premier 3 星和视界卓越体育频道3台
 https://hls.iill.top/api/Hub-Premier-3/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Premier 4
+#EXTINF:-1 group-title="體育「測試」",Hub Premier 4 星和视界卓越体育频道4台
 https://hls.iill.top/api/Hub-Premier-4/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Premier 5
+#EXTINF:-1 group-title="體育「測試」",Hub Premier 5 星和视界卓越体育频道5台
 https://hls.iill.top/api/Hub-Premier-5/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Premier 6
+#EXTINF:-1 group-title="體育「測試」",Hub Premier 6 星和视界卓越体育频道6台
 https://hls.iill.top/api/Hub-Premier-6/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Premier 7
+#EXTINF:-1 group-title="體育「測試」",Hub Premier 7 星和视界卓越体育频道7台
 https://hls.iill.top/api/Hub-Premier-7/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Premier 8
+#EXTINF:-1 group-title="體育「測試」",Hub Premier 8 星和视界卓越体育频道8台
 https://hls.iill.top/api/Hub-Premier-8/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Sports 1
+#EXTINF:-1 group-title="體育「測試」",Hub Sports 1 星和视界体育频道1台
 https://hls.iill.top/api/Hub-Sports-1/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Sports 2
+#EXTINF:-1 group-title="體育「測試」",Hub Sports 2 星和视界体育频道2台
 https://hls.iill.top/api/Hub-Sports-2/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Sports 3
+#EXTINF:-1 group-title="體育「測試」",Hub Sports 3 星和视界体育频道3台
 https://hls.iill.top/api/Hub-Sports-3/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Sports 4
+#EXTINF:-1 group-title="體育「測試」",Hub Sports 4 星和视界体育频道4台
 https://hls.iill.top/api/Hub-Sports-4/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Sports 5
+#EXTINF:-1 group-title="體育「測試」",Hub Sports 5 星和视界体育频道5台
 https://hls.iill.top/api/Hub-Sports-5/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Sports 6
+#EXTINF:-1 group-title="體育「測試」",Hub Sports 6 星和视界体育频道6台
 https://hls.iill.top/api/Hub-Sports-6/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Sports 7
+#EXTINF:-1 group-title="體育「測試」",Hub Sports 7 星和视界体育频道7台
 https://hls.iill.top/api/Hub-Sports-7/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Hub Sports 8
+#EXTINF:-1 group-title="體育「測試」",Hub Sports 8 星和视界体育频道8台
 https://hls.iill.top/api/Hub-Sports-8/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Fight Sports
+#EXTINF:-1 group-title="體育「測試」",Fight Sports 争强体育频道
 https://hls.iill.top/api/Fight-Sports/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",NBA TV
+#EXTINF:-1 group-title="體育「測試」",NBA TV 国家篮球协会电视
 https://hls.iill.top/api/NBA/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Spotv 1
+#EXTINF:-1 group-title="體育「測試」",Spotv 1 爱来特体育频道1台
 https://hls.iill.top/api/Spotv-1/index.m3u8
-#EXTINF:-1 group-title="體育「測試」",Spotv 2
+#EXTINF:-1 group-title="體育「測試」",Spotv 2 爱来特体育频道2台
 https://hls.iill.top/api/Spotv-2/index.m3u8
 #EXTINF:-1 group-title="港澳「限制」",鳳凰衛視·中文「回看」
 http://dxa.yiandrive.com:39191/phenix/fhzw
@@ -467,132 +555,6 @@ http://dxa.yiandrive.com:39191/gztv/xinwen
 http://dxa.yiandrive.com:39191/gztv/fazhi
 #EXTINF:-1 group-title="地方「特产」",广州南国都市
 http://dxa.yiandrive.com:39191/gztv/shenghuo
-#EXTINF:-1 group-title="地方「特产」",东方卫视
-http://dxa.yiandrive.com:39191/sh/dfws
-#EXTINF:-1 group-title="地方「特产」",五星体育
-http://dxa.yiandrive.com:39191/sh/wxty
-#EXTINF:-1 group-title="地方「特产」",第一财经
-http://dxa.yiandrive.com:39191/sh/dycj
-#EXTINF:-1 group-title="地方「特产」",上海新闻综合
-http://dxa.yiandrive.com:39191/sh/xwzh
-#EXTINF:-1 group-title="地方「特产」",上海都市频道
-http://dxa.yiandrive.com:39191/sh/dspd
-#EXTINF:-1 group-title="地方「特产」",新纪实
-http://dxa.yiandrive.com:39191/sh/xjs
-#EXTINF:-1 group-title="地方「特产」",魔都眼
-http://dxa.yiandrive.com:39191/sh/mdy
-#EXTINF:-1 group-title="地方「特产」",爱上海
-http://dxa.yiandrive.com:39191/sh/ash
-#EXTINF:-1 group-title="游戏「赛事」",「B站」热门赛事
-https://live.iill.top/bilibili/10
-#EXTINF:-1 group-title="游戏「赛事」",「B站」CS 2
-https://live.iill.top/bilibili/21622811
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」CS 2
-https://live.iill.top/huya/483917
-#EXTINF:-1 group-title="游戏「赛事」",「B站」英雄联盟
-https://live.iill.top/bilibili/6
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」英雄联盟 𝟙
-https://live.iill.top/huya/660000
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」英雄联盟 𝟚
-https://live.iill.top/huya/660001
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」英雄联盟 𝟙
-https://live.iill.top/douyu/288016
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」英雄联盟 𝟚
-https://live.iill.top/douyu/424559
-#EXTINF:-1 group-title="游戏「赛事」",「B站」英雄联盟•手游
-https://live.iill.top/bilibili/23138275
-#EXTINF:-1 group-title="游戏「赛事」",「B站」王者荣耀 𝟙
-https://live.iill.top/bilibili/55
-#EXTINF:-1 group-title="游戏「赛事」",「B站」王者荣耀 𝟚
-https://live.iill.top/bilibili/21654762
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」王者荣耀 𝟙
-https://live.iill.top/huya/660002
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」王者荣耀 𝟚
-https://live.iill.top/huya/660164
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」王者荣耀 𝟙
-https://live.iill.top/douyu/1863767
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」王者荣耀 𝟚
-https://live.iill.top/douyu/1984839
-#EXTINF:-1 group-title="游戏「赛事」",「B站」绝地求生
-https://live.iill.top/bilibili/98
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」绝地求生 𝟙
-https://live.iill.top/huya/660004
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」绝地求生 𝟚
-https://live.iill.top/huya/660005
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」绝地求生
-https://live.iill.top/douyu/100
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」绝地地图
-https://live.iill.top/douyu/5818871
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」和平精英
-https://live.iill.top/huya/660006
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」和平精英
-https://live.iill.top/douyu/999
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」金铲铲之战
-https://live.iill.top/huya/660579
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」金铲铲之战
-https://live.iill.top/douyu/9715241
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」DOTA2
-https://live.iill.top/huya/660118
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」DOTA2
-https://live.iill.top/douyu/3811559
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」云顶之弈
-https://live.iill.top/douyu/522423
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」永劫无间
-https://live.iill.top/huya/660115
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」永劫无间
-https://live.iill.top/huya/9662891
-#EXTINF:-1 group-title="游戏「赛事」",「B站」使命召唤•手游
-https://live.iill.top/bilibili/22741849
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」使命召唤•手游
-https://live.iill.top/huya/11718629
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」使命召唤•手游
-https://live.iill.top/douyu/9223245
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」穿越火线
-https://live.iill.top/huya/660101
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」穿越火线 𝟙
-https://live.iill.top/douyu/605964
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」穿越火线 𝟚
-https://live.iill.top/douyu/5388537
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」穿越火线•手游
-https://live.iill.top/huya/660102
-#EXTINF:-1 group-title="游戏「赛事」",「B站」第五人格
-https://live.iill.top/bilibili/5555
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」第五人格
-https://live.iill.top/huya/idvesports
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」第五人格
-https://live.iill.top/douyu/3226194
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」逆战
-https://live.iill.top/huya/nsl2021
-#EXTINF:-1 group-title="游戏「赛事」",「B站」无畏契约
-https://live.iill.top/bilibili/22908869
-#EXTINF:-1 group-title="游戏「赛事」",「虎牙」无畏契约
-https://live.iill.top/huya/660679
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」无畏契约
-https://live.iill.top/douyu/4585645
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」原神
-https://live.iill.top/douyu/10853239
-#EXTINF:-1 group-title="游戏「赛事」",「B站」QQ飞车•手游
-https://live.iill.top/bilibili/21743919
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」QQ飞车•手游
-https://live.iill.top/douyu/5040227
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」梦幻西游·手游
-https://live.iill.top/huya/9163712
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」街霸
-https://live.iill.top/huya/11437
-#EXTINF:-1 group-title="游戏「赛事」",「B站」JJ斗地主
-https://live.iill.top/bilibili/22021983
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」JJ斗地主
-https://live.iill.top/douyu/488743
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」我的世界
-https://live.iill.top/douyu/738878
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」FIFA
-https://live.iill.top/douyu/7692166
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」火影忍者
-https://live.iill.top/douyu/1997723
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」跑跑卡丁车
-https://live.iill.top/douyu/7722576
-#EXTINF:-1 group-title="游戏「赛事」",「斗鱼」跑跑卡丁车•手游
-https://live.iill.top/douyu/6672862
 #EXTINF:-1 group-title="广播「壹」",Big Radio
 https://stream.hndt.com/live/gudian/playlist.m3u8
 #EXTINF:-1 group-title="广播「壹」",CAPITAL 958
